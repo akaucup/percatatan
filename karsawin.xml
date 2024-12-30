@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+	<head>
+		<meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+		<link crossorigin='anonymous' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' rel='stylesheet'/>
+		<link href='https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css' rel='stylesheet'/>
+		<link href='https://fonts.googleapis.com' rel='preconnect'/>
+		<link href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Nunito:ital,wght@0,200..1000;1,200..1000&amp;family=Parisienne&amp;family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap' rel='stylesheet'/>
+		<title>
+			<data:blog.pageTitle/>
+		</title>
+		<b:skin><![CDATA[
+			
+	html {
+    scroll-behavior: smooth;
+}		
+			
+body {
+	 font-family: "Nunito", serif;
+scroll-snap-type: y mandatory;
+
+}
+ #cover, #wedding-couple, #wedding-event, #wedding-info, #wedding-location, #wedding-message{
+	 min-height: 96vh !important;
+	 position: relative !important;
+	 z-index: 1 !important;
+	 padding: 1rem !important;
+
+
+}
+ #cover {
+	 background: url(https://static.vecteezy.com/system/resources/previews/013/653/776/non_2x/winter-background-free-vector.jpg) !important;
+     background-size: cover !important;
+	 background-position: center !important;
+    overflow: hidden; /* Mencegah scroll pada cover */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh; /* Pastikan cover mengambil tinggi penuh */
+    z-index: 10000; /* Pastikan cover di atas elemen lain sebelum dibuka */
+    /*transition: opacity 0.5s ease; Transisi lembut saat cover disembunyikan */
+transition: transform 1s ease, opacity 0.5s ease; /* Tambahkan transisi untuk slide ke atas dan opacity */
+    transform: translateY(0); /* Awalnya pada posisi semula */
+    opacity: 1; /* Awalnya terlihat */
+	 
+}
+ #wedding-couple{
+	 background: url(https://static.vecteezy.com/system/resources/previews/006/845/888/large_2x/watercolor-floral-background-with-brush-and-floral-frame-for-horizontal-banner-backdrop-wedding-invitation-thank-you-card-wallpaper-free-photo.jpg) !important;
+     background-size: cover !important;
+	 background-position: center !important;
+}
+ #wedding-event{
+	 background: url(https://static.vecteezy.com/system/resources/previews/010/585/935/non_2x/pine-leaves-botanical-abstract-art-background-luxury-minimal-style-wallpaper-with-golden-line-art-flower-and-botanical-leaves-organic-shapes-watercolor-background-for-banner-poster-free-vector.jpg) !important;
+     background-size: cover !important;
+	 background-position: center !important;
+}
+ #wedding-info{
+	 background: url(https://static.vecteezy.com/system/resources/previews/007/740/967/large_2x/abstract-art-gold-tropical-leaves-background-luxury-wallpaper-with-watercolor-tropical-leaf-framed-exotic-color-free-vector.jpg) !important;
+     background-size: cover !important;
+	 background-position: center !important;
+}
+
+ #wedding-location{
+	 background: url(https://static.vecteezy.com/system/resources/previews/007/740/967/large_2x/abstract-art-gold-tropical-leaves-background-luxury-wallpaper-with-watercolor-tropical-leaf-framed-exotic-color-free-vector.jpg) !important;
+     background-size: cover !important;
+	 background-position: center !important;
+}
+ #wedding-message{
+	 background: url(https://static.vecteezy.com/system/resources/previews/010/585/934/large_2x/sunflowers-botanical-abstract-art-background-line-art-flower-and-botanical-leaves-organic-shapes-background-for-banner-poster-web-and-packaging-free-vector.jpg) !important;
+     background-size: cover !important;
+	 background-position: center !important;
+}
+
+ .circular-image {
+	 width: 180px;
+	 height: 180px;
+	 border-radius: 50%;
+	 object-fit: cover;
+}
+ .avt {
+	 width: 100px;
+	 height: 100px;
+	 border-radius: 50%;
+	 object-fit: cover;
+}
+ .blur-background {
+	 background-color: rgba(255, 255, 255, 0.8);
+	 backdrop-filter: blur(15px);
+	 padding: 10px;
+	 margin: 0 auto;
+	 border-radius: 10px;
+}
+ .blur-background p {
+	 font-size: 1rem;
+}
+ .blur-background h3 {
+	 font-size: 1.0rem;
+}
+ h1 {
+	 font-family: "Parisienne", serif;
+	 font-size: 2rem;
+}
+
+
+/* Custom floating navigation indicator */
+.navigation-indicator {
+  position: fixed;
+  bottom: 15px; /* Jarak dari bawah layar */
+  left: 50%;
+  backdrop-filter: blur(15px);
+  transform: translateX(-50%); /* Menempatkan di tengah layar */
+  background-color: rgba(236, 235, 222, 0.7); /* rgba(255, 255, 255, 0.9) Transparansi background */
+  padding: 15px 15px; /* Padding di sekitar ikon */
+  border-radius: 10px; /* Membulatkan seluruh area */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+  z-index: 9999; /* Supaya tetap berada di atas konten lain */
+  width: auto;
+  max-width: 100%; /* Batas maksimal lebar agar tetap responsif */
+}
+
+/* Navigation item styling */
+.indicator-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px; /* Lebar yang sama dengan tinggi untuk membuat persegi */
+  height: 40px; /* Tinggi yang sama dengan lebar */
+  background-color: transparent ; /* #A9DFBF Tidak ada background untuk ikon */
+  color: #229954; /* Warna ikon */
+  font-size: 1.2rem; /* Ukuran ikon */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transisi untuk hover */
+  border-radius: 5px; /* Membuat ikon bulat */
+}
+
+/* Flexbox container for centering items */
+.nav {
+  gap: 12px; /* Jarak antar ikon */
+  align-items: center;
+}
+
+/* Active state for navigation item */
+.indicator-item.active {
+  background-color: rgba(130, 224, 170, 0.9) ; /*  Hover saat ikon aktif */
+  color: #0B5345; /* A9DFBF Warna ikon berubah saat aktif */
+  border-radius: 5px; /* Pastikan tetap bulat */
+  transform: scale(1.5); /* Sedikit lebih besar saat aktif */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transisi halus */
+}
+
+/* Hover and active interaction */
+.indicator-item:hover,
+.indicator-item.active:hover {
+  background-color: rgba(130, 224, 170, 0.9); /* Transparansi background */
+  transform: scale(1.5); /* Efek hover lebih besar */
+}
+
+
+
+
+/* Tambahan Transisi untuk Smooth Animasi */
+
+.poff {
+  opacity: 0; /* Awalnya tidak terlihat */
+  transform: translateY(50px); /* Menggeser sedikit ke bawah */
+  transition: opacity 1s ease-in, transform 0.5s ease-in; /* Transisi smooth */
+}
+
+.poff.visible {
+  opacity: 1; /* Terlihat */
+  transform: translateY(0); /* Kembali ke posisi semula */
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#audio-control {
+  position: fixed;
+  bottom: 15px;
+  right: 20px;
+  z-index: 9999;
+transform-origin: center; /* Pastikan rotasi terjadi di tengah */
+  font-size: 25px;
+  color: #007bff; /* Ubah warna sesuai keinginan */
+  cursor: pointer;
+}
+
+/* Hanya putar jika memiliki kelas .spin */
+.spin {
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+transform-origin: center; /* Pastikan rotasi terjadi di tengah */
+}
+
+.comment {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.comment:nth-child(odd) {
+  background-color: #f2f2f2; /* Warna untuk baris ganjil */
+}
+
+.comment:nth-child(even) {
+  background-color: #ffffff; /* Warna untuk baris genap */
+}
+
+.comment .header {
+  display: flex;
+  align-items: center; /* Nama dan ikon berada dalam satu baris */
+}
+
+.name {
+  color: #333;
+  margin-right: 5px; /* Jarak antara nama dan ikon */
+}
+
+.attendance-icon {
+  font-size: 1.2em; /* Ukuran ikon */
+  vertical-align: middle; /* Memastikan ikon sejajar dengan teks */
+}
+
+.attendance {
+  color: #666;
+}
+
+.timestamp {
+  margin-left: auto; /* Agar timestamp ada di ujung kanan */
+  color: #999;
+  font-size: 0.9em;
+}
+
+.message {
+  margin-top: 5px;
+  text-align: left;
+}
+
+.page-button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: 1px solid #ddd;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.page-button.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.page-button:hover {
+  background-color: #ddd;
+}
+
+#messageTextarea {
+  height: 100px;
+  resize: none;
+}
+.bi-check-circle-fill {
+ color:  #27ae60;
+}
+.bi-slash-circle-fill {
+ color:  #f4d03f;
+}
+.bi-x-circle-fill {
+ color:  #e74c3c;
+}
+
+
+@media (max-width: 768px) {
+  .indicator-item {
+    width: 40px; /* Lebar ikon lebih kecil pada layar kecil */
+    height: 40px; /* Tinggi yang sama agar tetap persegi */
+    font-size: 1.2rem; /* Ukuran ikon lebih kecil */
+  }
+
+  .navigation-indicator {
+    padding: 10px 10px; /* Kurangi padding pada layar kecil */
+    max-width: 90%; /* Batas lebar yang lebih kecil */
+  }
+
+  .nav {
+    gap: 12px; /* Kurangi jarak antar ikon pada layar kecil */
+  }
+}
+
+
+		
+		]]></b:skin>
+		<script type='text/javascript'>
+      function getURLParameter(name) {
+          const urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get(name);
+      }
+
+      function updateGuestName() {
+          const guestName = getURLParameter(&#39;tamu&#39;);
+          if (guestName) {
+              document.getElementById(&#39;guest-name&#39;).innerText = guestName;
+          } else {
+              document.getElementById(&#39;guest-name&#39;).innerText = &#39;Tamu undangan&#39;;
+          }
+      }
+      window.onload = function() {
+        updateGuestName();
+    };
+    </script>
+	</head>
+	<body>
+		<audio id='invitation-music' loop='true'>
+			<source src='https://raw.githubusercontent.com/akaucup/page/499f5d23b0a228562161e9e00d3b2a6c174ba75a/I%20Think%20They%20Call%20This%20Love%20-%20Elliot%20James%20Reay.mp3' type='audio/mpeg'/> Your browser does not support the audio element.
+		</audio>
+      
+		<!-- cover -->
+		<div class='poff container-fluid align-content-center py-1' id='cover'>
+			<div class='justify-content-around text-center'>
+              <div class='col-12 text-center'>
+					<h3>The Wedding Of</h3>
+					<h1>Anis &amp; Yusup</h1>
+					<p>27 Desember 2024</p>
+					<img class='circular-image my-4' src='https://static.vecteezy.com/system/resources/previews/026/332/949/non_2x/muslim-wedding-couple-character-bride-and-groom-in-cartoon-style-faceless-character-free-vector.jpg'/>
+              </div>
+          </div>
+          <div class='col-7 col-sm-6 text-center my-auto blur-background mb-1'>
+            <p>Kepada Bapak/Ibu/Saudara/i</p>
+            <h4 id='guest-name'/>
+            <i>Di tempat</i>
+          </div>
+          <div class='col-12 text-center'>
+            <button class='btn btn-primary col-5 col-sm-6 my-2' id='bukaButton' onclick='bukaUndangan()'>Buka Undangan</button>
+          </div>
+		</div>
+      
+		<!-- wedding-couple -->
+		<div class='poff container-fluid align-content-center py-1' id='wedding-couple'>
+			<div class='justify-content-around text-center'>
+				<!--h3 class='mt-4'>ا&#1614;لس&#1614;&#1617;لا&#1614;م&#1615; ع&#1614;ل&#1614;ي&#1618;ك&#1615;م&#1618; و&#1614;ر&#1614;ح&#1618;م&#1614;ة&#1615; الله&#1616; و&#1614;ب&#1614;ر&#1614;ك&#1614;ات&#1615;ه&#1615;</h3-->
+				<p>Maha suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah, perkenankanlah kami merangkai kasih sayang yang Kau ciptakan di antara putra-putri kami:</p>
+				<img class='avt' src='https://static.vecteezy.com/system/resources/previews/020/194/518/large_2x/avatar-of-a-wedding-character-free-vector.jpg'/>
+				<h1>Muhamad Yusup Abdullah</h1>
+				<em>
+					<small class='my-1'>putra pertama dari Nursid dan Khonipah</small>
+				</em>
+				<h5>dan</h5>
+				<img class='avt' src='https://static.vecteezy.com/system/resources/previews/020/194/538/large_2x/avatar-of-a-wedding-character-free-vector.jpg'/>
+				<h1>Anis Setyaningrum</h1>
+				<em>
+					<small>putri pertama dari Pepen Supendi dan Iriyanti</small>
+				</em>
+			</div>
+		</div>
+		<!-- wedding-event -->
+		<div class='poff container-fluid align-content-center py-1' id='wedding-event'>
+			<div class='justify-content-around text-center'>
+				<div class='container my-4'>
+					<div class='blur-background text-center p-1' style='max-width: 400px; margin: 0 auto;'>
+						<div style='display: flex; justify-content: space-around;'>
+							<div>
+								<h3 id='days' style='margin: 0;'>0</h3>
+								<p style='margin: 0;'>Hari</p>
+							</div>
+							<div>|</div>
+							<!-- Divider -->
+							<div>
+								<h3 id='hours' style='margin: 0;'>0</h3>
+								<p style='margin: 0;'>Jam</p>
+							</div>
+							<div>|</div>
+							<!-- Divider -->
+							<div>
+								<h3 id='minutes' style='margin: 0;'>0</h3>
+								<p style='margin: 0;'>Menit</p>
+							</div>
+							<div>|</div>
+							<!-- Divider -->
+							<div>
+								<h3 id='seconds' style='margin: 0;'>0</h3>
+								<p style='margin: 0;'>Detik</p>
+							</div>
+						</div>
+					</div>
+					<div class='text-center'>
+						<a class='btn btn-primary mt-3' href='https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Anis+%26+Yusup+Wedding&amp;dates=20250122T030000Z/20250122T235959Z&amp;details=Join+us+for+our+wedding+celebration+on+22nd+January+2025&amp;location=-7.4580836,109.2101201&amp;sf=true&amp;output=xml' style='width: auto;' target='_blank'>Save the Date</a>
+					</div>
+					<!-- Responsif Embed Google Maps -->
+					<div class='text-center blur-background mt-3 col-md-7'>
+						<iframe allowfullscreen='' height='300' loading='lazy' referrerpolicy='no-referrer-when-downgrade' src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15816.97171599081!2d109.2101201!3d-7.4580836!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zN8KwMjcnMjguMiJTIDEwOcKwMTInMzYuNCJF!5e0!3m2!1sen!2sid!4v1234567890' style='border:0; max-width: 600px;' width='100%'/>
+					</div>
+					<!-- Button for opening in Google Maps app -->
+					<div class='text-center mt-3'>
+						<a class='btn btn-secondary' href='https://www.google.com/maps?q=loc:-7.4580836,109.2101201' style='width: auto;' target='_blank'>Open in Google Maps</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- wedding-info -->
+		<div class='poff container-fluid align-content-center pt-1' id='wedding-info'>
+			<div class='row justify-content-around text-center'>
+				<p class='col-11 mx-3'>Merupakan kehormatan dan kebahagiaan bagi kami, apabila Bapak/Ibu/Saudara/i, hadir untuk memberikan do&#39;a dan restu pada acara Resepsi Pernikahan kami, yang Insya Allah akan dilaksanakan pada :</p>
+				<div class='col-12 row text-center'>
+					<div class='col-10 col-md-5 blur-background my-1'>
+						<h2>Akad nikah</h2>
+						<div>
+							<h3>Rabu, 22 Januari 2025</h3>
+							<p>08:00 - 09:00</p>
+							<h6>Kantor KUA Patikraja</h6>
+						</div>
+					</div>
+					<div class='col-10 col-md-5 blur-background my-1'>
+						<h2>Resepsi</h2>
+						<div>
+							<h3>Rabu, 22 Januari 2025</h3>
+							<p>09:00 - selesai</p>
+							<h6>Karanganyar Rt04/01, Patikraja, Banyumas</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+      
+      
+		<!-- wedding location -->
+		<div class='poff container-fluid align-content-center pt-1' id='wedding-location'>
+			<div class='row justify-content-around text-center'>
+              <div class='col'>
+                1 of 2
+              </div>
+              <div class='col'>
+                2 of 2
+              </div>
+          </div>
+		</div>
+      
+      
+		<!-- wedding message -->
+		<div class='poff container-fluid align-content-center pt-1' id='wedding-message'>
+			<div class='row blur-background justify-content-around text-center col-12 col-md-8 mx-auto'>
+              <h2>Ucapan dan Doa</h2>
+              <small>Berikan ucapan dan doa terbaik</small>
+              <form class='my-3' id='rsvpForm'>
+				<div class='my-1 form-floating'>
+					<input class='form-control' maxlength='20' name='Name' placeholder='Nama kamu' required='true' type='text'/>
+					<label for='floatingName'>Nama kamu</label>
+				</div>
+				<!-- Attendance sebagai dropdown -->
+				<select class='my-1 form-select' name='Attendance' required='true'>
+					<option value=''>-- Konfirmasi Kehadiran --</option>
+					<option value='Hadir'>Hadir</option>
+					<option value='Tidak Hadir'>Tidak Hadir</option>
+					<option value='Bimbang'>Bimbang</option>
+				</select>
+				<div class='form-floating'>
+					<textarea class='mt-1 form-control' id='messageTextarea' maxlength='300' name='Message' placeholder='Pesan terbaik untuk mempelai' required='true' style='height: 100px'/>
+					<label for='floatingMessage'>Pesan terbaik untuk mempelai</label>
+				</div>
+				<p class='text-start' id='charCount'>
+					<small>300 karakter tersisa</small>
+				</p>
+                <div class='d-grid col-6 col-md-7 mx-auto'>
+				<button class='btn btn-primary mb-2' type='submit'>Kirim</button>
+                </div>
+			</form>
+              <div class='container col-7 col-md-4 text-center py-2 mx-auto' id='attendanceCount'>
+				<div class='row justify-content-center'>
+					<div class='col'>
+						<i class='bi bi-check-circle-fill'/>
+						<span id='hadirCount'>0</span>
+					</div>
+					<div class='col'>
+						<i class='bi bi-slash-circle-fill'/>
+						<span id='bimbangCount'>0</span>
+					</div>
+					<div class='col'>
+						<i class='bi bi-x-circle-fill'/>
+						<span id='tidakHadirCount'>0</span>
+					</div>
+				</div>
+			</div>
+			<div class='py-1' id='comments-container' style='height: 500px; overflow-y: auto;'>
+				<div id='comments'/>
+              </div>
+			</div>
+		</div>
+		<!-- navigation -->
+		<div class='' id='navigation'>
+			<nav class='navigation-indicator'>
+				<ul class='nav d-flex justify-content-between align-items-center flex-nowrap'>
+					<li class='nav-item'>
+						<a class='nav-link indicator-item' href='#wedding-couple'>
+							<i class='bi bi-house-heart'/>
+						</a>
+					</li>
+					<li class='nav-item'>
+						<a class='nav-link indicator-item' href='#wedding-event'>
+							<i class='bi bi-calendar-heart'/>
+						</a>
+					</li>
+					<li class='nav-item'>
+						<a class='nav-link indicator-item' href='#wedding-info'>
+							<i class='bi bi-box2-heart'/>
+						</a>
+					</li>
+					<li class='nav-item'>
+						<a class='nav-link indicator-item' href='#wedding-location'>
+							<i class='bi bi-chat-heart'/>
+						</a>
+					</li>
+					<li class='nav-item'>
+						<a class='nav-link indicator-item' href='#wedding-message'>
+							<i class='bi bi-envelope-paper-heart'/>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div id='audio-controlrr' style=''>
+			<i class='bi bi-disc' id='audio-control' style='display: none; font-size: 40px; cursor: pointer;'/>
+		</div>
+		<b:section id='invitation' showaddelement='no'/>
+		<script crossorigin='anonymous' integrity='sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz' src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'/>
+		<script>
+  // Tentukan tanggal acara
+  var eventDate = new Date(&quot;January 22, 2025 10:00:00&quot;).getTime();
+
+  // Update hitungan mundur setiap detik
+  var countdownFunction = setInterval(function() {
+
+    // Mendapatkan waktu saat ini
+    var now = new Date().getTime();
+
+    // Menghitung jarak waktu antara sekarang dan tanggal acara
+    var distance = eventDate - now;
+
+    // Hitung waktu untuk hari, jam, menit, dan detik
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Menampilkan hasil di elemen HTML dengan ID yang sesuai
+    document.getElementById(&quot;days&quot;).innerText = days;
+    document.getElementById(&quot;hours&quot;).innerText = hours;
+    document.getElementById(&quot;minutes&quot;).innerText = minutes;
+    document.getElementById(&quot;seconds&quot;).innerText = seconds;
+
+    // Jika hitungan mundur selesai, tampilkan pesan
+if (distance &lt; 0) {
+      clearInterval(countdownFunction);
+      document.getElementById(&quot;countdown&quot;).innerHTML = &quot;Acara telah dimulai!&quot;;
+    }
+  }, 1000);
+          
+
+  // Ambil semua item navigasi
+  const navItems = document.querySelectorAll(&#39;.indicator-item&#39;);
+
+  // Tambahkan event listener untuk setiap item navigasi
+  navItems.forEach(item =&gt; {
+    item.addEventListener(&#39;click&#39;, function() {
+      // Hapus kelas &#39;active&#39; dari semua item
+      navItems.forEach(i =&gt; i.classList.remove(&#39;active&#39;));
+      
+      // Tambahkan kelas &#39;active&#39; ke item yang diklik
+      this.classList.add(&#39;active&#39;);
+    });
+  });
+
+
+  
+          
+          
+    // Fungsi untuk menyembunyikan semua elemen kecuali cover
+    function hideAllExceptCover() {
+        document.getElementById(&#39;cover&#39;).style.display = &#39;block&#39;; // Tampilkan cover
+        document.getElementById(&#39;wedding-couple&#39;).style.display = &#39;none&#39;;
+        document.getElementById(&#39;wedding-event&#39;).style.display = &#39;none&#39;;
+        document.getElementById(&#39;wedding-info&#39;).style.display = &#39;none&#39;;
+        document.getElementById(&#39;wedding-message&#39;).style.display = &#39;none&#39;;
+        document.getElementById(&#39;wedding-location&#39;).style.display = &#39;none&#39;;
+        document.getElementById(&#39;navigation&#39;).style.display = &#39;none&#39;;
+    }
+
+function bukaUndangan() {
+        document.getElementById(&#39;cover&#39;).style.display = &#39;none&#39;; // Sembunyikan cover
+        document.getElementById(&#39;wedding-couple&#39;).style.display = &#39;block&#39;;
+        document.getElementById(&#39;wedding-event&#39;).style.display = &#39;block&#39;;
+        document.getElementById(&#39;wedding-info&#39;).style.display = &#39;block&#39;;
+        document.getElementById(&#39;wedding-message&#39;).style.display = &#39;block&#39;;
+        document.getElementById(&#39;wedding-location&#39;).style.display = &#39;block&#39;;
+        document.getElementById(&#39;navigation&#39;).style.display = &#39;block&#39;;
+        var cover = document.getElementById(&#39;cover&#39;);
+    }
+   
+
+    // Fungsi untuk menghapus fragment URL tanpa menghilangkan nama tamu
+    function removeUrlFragment() {
+        const url = window.location.href;
+        const tamuIndex = url.indexOf(&#39;?tamu=&#39;);
+        if (tamuIndex !== -1) {
+            const newUrl = url.split(&#39;#&#39;)[0]; // Hapus fragment URL
+            history.replaceState(null, null, newUrl); // Ganti URL tanpa reload
+        }
+    }
+
+    window.onload = function() {
+        // Menyembunyikan elemen selain cover saat pertama kali dimuat
+        hideAllExceptCover();
+        updateGuestName();
+        removeUrlFragment(); // Hapus fragment URL setelah halaman dimuat
+    };     
+
+          
+
+  
+document.getElementById(&#39;bukaButton&#39;).addEventListener(&#39;click&#39;, function() {
+    var sections = document.querySelectorAll(&#39;.poff&#39;);
+    var audio = document.getElementById(&#39;invitation-music&#39;);
+    var audioControl = document.getElementById(&#39;audio-control&#39;);
+    var audioIcon = document.getElementById(&#39;audio-control&#39;);
+
+    // Mulai memutar audio saat tombol &quot;Buka Undangan&quot; diklik
+    audio.play().then(function() {
+        // Tampilkan kontrol audio play/pause dan tambahkan animasi putar setelah audio diputar
+        audioControl.style.display = &#39;block&#39;;
+        audioIcon.classList.add(&#39;spin&#39;); // Memulai rotasi ikon saat audio mulai diputar
+    }).catch(function(error) {
+        console.log(&#39;Audio gagal diputar: &#39;, error);
+    });
+
+    // Proses transisi elemen undangan satu per satu
+    sections.forEach(function(poff, index) {
+        setTimeout(function() {
+            poff.classList.add(&#39;visible&#39;);
+        }, index * 200); // Menambahkan delay untuk transisi berurutan
+    });
+
+    // Tambahkan event listener untuk play/pause kontrol
+    audioControl.addEventListener(&#39;click&#39;, function() {
+        if (audio.paused) {
+            audio.play();
+            audioIcon.classList.add(&#39;spin&#39;); // Tambahkan animasi rotasi saat audio diputar
+            audioIcon.classList.replace(&#39;bi-play-circle&#39;, &#39;bi-disc&#39;); // Kembali ke ikon disk
+        } else {
+            audio.pause();
+            audioIcon.classList.remove(&#39;spin&#39;); // Hentikan animasi rotasi saat audio dijeda
+            audioIcon.classList.replace(&#39;bi-disc&#39;, &#39;bi-play-circle&#39;); // Ganti ikon menjadi play saat audio dijeda
+        }
+    });
+});
+
+
+
+
+const scriptURL = &#39;https://script.google.com/macros/s/AKfycbwl7mJW9zlsN6L0dlRksiI7Q9wsOr7lnPWAxoT6zGNP0hkeP_3cxn40S4hnlaJ-1rSQ/exec&#39;;
+    
+    let allData = [];
+    let currentPage = 1;
+    const commentsPerPage = 6;
+    let isLoading = false;
+    let isSubmitting = false;
+
+    // Function to fetch and display data
+    function fetchDataAndDisplay() {
+      fetch(scriptURL)
+        .then(response =&gt; response.json())
+        .then(responseData =&gt; {
+          allData = responseData.data.reverse();
+          currentPage = 1;
+          document.getElementById(&#39;comments&#39;).innerHTML = &#39;&#39;;
+          displayComments();
+          updateTotalCount(responseData);
+          setupInfiniteScroll();
+        })
+        .catch(error =&gt; console.error(&#39;Error fetching data:&#39;, error));
+    }
+
+    // Function to display comments
+	function displayComments() {
+  const commentsContainer = document.getElementById(&#39;comments&#39;);
+  const start = (currentPage - 1) * commentsPerPage;
+  const end = start + commentsPerPage;
+  const dataToShow = allData.slice(start, end);
+
+  dataToShow.forEach(row =&gt; {
+    const commentDiv = document.createElement(&#39;div&#39;);
+    commentDiv.classList.add(&#39;comment&#39;);
+
+    const headerDiv = document.createElement(&#39;div&#39;);
+    headerDiv.classList.add(&#39;header&#39;);
+
+    const nameSpan = document.createElement(&#39;span&#39;);
+    nameSpan.classList.add(&#39;name&#39;);
+    nameSpan.textContent = row[1]; // Nama pengguna
+
+    const attendanceIcon = document.createElement(&#39;i&#39;);
+    attendanceIcon.classList.add(&#39;attendance-icon&#39;);
+
+    // Pilih ikon berdasarkan kehadiran
+    switch (row[2].toLowerCase()) {
+      case &#39;hadir&#39;:
+        attendanceIcon.classList.add(&#39;bi&#39;, &#39;bi-check-circle-fill&#39;); // Ikon hadir
+        break;
+      case &#39;tidak hadir&#39;:
+        attendanceIcon.classList.add(&#39;bi&#39;, &#39;bi-x-circle-fill&#39;); // Ikon tidak hadir
+        break;
+      case &#39;bimbang&#39;:
+        attendanceIcon.classList.add(&#39;bi&#39;, &#39;bi-slash-circle-fill&#39;); // Ikon bimbang
+        break;
+      default:
+        attendanceIcon.textContent = &#39;&#39;; // Tidak ada ikon jika status kehadiran tidak dikenal
+    }
+
+    const timestampDiv = document.createElement(&#39;div&#39;);
+    timestampDiv.classList.add(&#39;timestamp&#39;);
+    timestampDiv.textContent = new Date(row[0]).toLocaleString(); // Waktu
+
+    const messageDiv = document.createElement(&#39;div&#39;);
+    messageDiv.classList.add(&#39;message&#39;);
+    messageDiv.textContent = row[3]; // Pesan
+
+    // Gabungkan nama dan ikon ke dalam header
+    headerDiv.appendChild(nameSpan);
+    headerDiv.appendChild(attendanceIcon);
+    headerDiv.appendChild(timestampDiv);
+
+    commentDiv.appendChild(headerDiv);
+    commentDiv.appendChild(messageDiv);
+    commentsContainer.appendChild(commentDiv);
+  });
+
+  isLoading = false;
+}
+
+
+
+    // Infinite Scroll Setup
+    function setupInfiniteScroll() {
+      const commentsContainer = document.getElementById(&#39;comments-container&#39;);
+
+      commentsContainer.addEventListener(&#39;scroll&#39;, function() {
+        if (commentsContainer.scrollTop + commentsContainer.clientHeight &gt;= commentsContainer.scrollHeight &amp;&amp; !isLoading) {
+          if (currentPage * commentsPerPage &lt; allData.length) {
+            isLoading = true;
+            currentPage++;
+            displayComments();
+          }
+        }
+      });
+    }
+
+    // Update total counts for attendance
+    function updateTotalCount(responseData) {
+      document.getElementById(&#39;hadirCount&#39;).textContent = responseData.hadir;
+      document.getElementById(&#39;tidakHadirCount&#39;).textContent = responseData.tidakHadir;
+      document.getElementById(&#39;bimbangCount&#39;).textContent = responseData.bimbang;
+    }
+
+    // Handle form submission
+    document.getElementById(&#39;rsvpForm&#39;).addEventListener(&#39;submit&#39;, function(e) {
+      e.preventDefault();
+
+      if (isSubmitting) return;
+
+      const form = this;
+      const formData = new FormData(form);
+      isSubmitting = true;
+
+      fetch(scriptURL, { method: &#39;POST&#39;, body: formData })
+        .then(response =&gt; response.text())
+        .then(data =&gt; {
+          form.querySelectorAll(&#39;input, select, textarea, button&#39;).forEach(function(el) {
+            el.disabled = true;
+          });
+          form.reset();
+          setTimeout(() =&gt; {
+            // Fetch new data with random delay
+            fetchDataAndDisplay();
+            isSubmitting = false;
+          }, Math.random() * 2000 + 500);
+        })
+        .catch(error =&gt; {
+          console.error(&#39;Error submitting data:&#39;, error);
+          isSubmitting = false;
+        });
+    });
+
+    // Initial data fetch on page load
+    document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
+      fetchDataAndDisplay();
+    });
+  
+    
+      const messageTextarea = document.getElementById(&#39;messageTextarea&#39;);
+  const charCount = document.getElementById(&#39;charCount&#39;);
+  const maxChars = 300;
+
+  // Update character count as user types
+  messageTextarea.addEventListener(&#39;input&#39;, function() {
+    const remainingChars = maxChars - messageTextarea.value.length;
+    charCount.textContent = remainingChars + &#39; karakter tersisa&#39;;
+
+    // Optionally, you can add a warning color when nearing the limit
+    if (remainingChars &lt;= 50) {
+      charCount.style.color = &#39;red&#39;;
+    } else {
+      charCount.style.color = &#39;black&#39;;
+    }
+  });
+    
+          
+</script>
+      <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'/>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'/>
+		<script crossorigin='anonymous' integrity='sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz' src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'/>
+	</body>
+</html>
